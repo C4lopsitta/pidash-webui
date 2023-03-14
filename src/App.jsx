@@ -1,7 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
+
 function App() {
+
+  const [data, setData] = useState("");
+  useEffect(() => {
+    function poll(){
+      fetch('http://localhost:80/polling.php').then(response=>console.log(response.json()));
+      // .then(response=>response.json())
+      // .then(result=>{
+      //   setData(result.data);
+      //   console.log(data);
+      //   poll();
+      // }).catch(error=>{
+      //   console.log(error);
+      //   setTimeout(poll, 1000);
+      // })
+    }
+    poll();
+  }, []);
+  
+
 
   return (
     <>
