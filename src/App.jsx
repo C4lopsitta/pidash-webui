@@ -2,23 +2,22 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Tile from './Tile.jsx'
 import Weather from './Weather.jsx'
+import Spotify from './Spotify.jsx'
 
 function App() {
 
-  const [data, setData] = useState("");
+  const [data, setData] = useState();
   const [time, setTime] = useState("");
 
   useEffect(() => {
     function poll(){
-      fetch('http://localhost:80/polling.php')
-      .then(response=>{response.json(); console.log(response)})
+      fetch('http://localhost:80/shish.json')
+      .then(response=>response.json())
       .then(result=>{
-        console.log(response);
-        setData(result.data);
-        console.log(data);
-        poll();
+        setData(result);
+        setTimeout(poll, 3000);
       }).catch(error=>{
-        //console.log(error);
+        console.log(error);
         setTimeout(poll, 3000);
       })
     }
@@ -45,7 +44,7 @@ function App() {
     <main className="home_tiles">
       <Tile isSmall="true" component={<Weather />} />
       <Tile isSmall="true" />
-      <Tile isSmall="false" />
+      <Tile isSmall="false" component={<Spotify />} />
       <Tile isSmall="true" />
       <Tile isSmall="true" />
       <Tile isSmall="false" />
