@@ -14,4 +14,18 @@
   box-sizing: border-box;
 }
 
+#root{
+  backdrop-filter: blur(8px);
+  min-height: 100vh;
+}
+
+body{
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/ed/Mont_Blanc_from_Aosta_Valley.JPG);
+  background-size: auto 100vh;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+}
+
 
