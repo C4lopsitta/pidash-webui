@@ -10,4 +10,7 @@ _these will most likeley change in the future_
 - volume control on the player
 - customizable layout on a grid based interface
 
+## Screenshots
+![A screenshot of the project](https://github.com/c4lopsitta/pidash-webui/blob/main/screenshots/img1.png?raw=true)
+
 
