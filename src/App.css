@@ -18,13 +18,16 @@
 .home_nav{
   display: grid;
   height: 2rem;
-  width: calc(100% - 2rem);
+  width: calc(100% - 4rem);
   justify-content: space-between;
   align-items: center;
   grid-template-rows: 2rem;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   margin: 1rem;
+  position: fixed;
+  float: left;
+  top:  0.75rem;
 }
 
 .home_nav_status{
@@ -51,6 +54,47 @@
 
 .home_tiles{
   display: grid;
-  
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+  margin-top: 4rem;
+  height: 90vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: y mandatory;
+  scroll-padding: 1rem;
 }
- 
+.home_tiles::-webkit-scrollbar {
+  display: none;
+}
+/* .home_tiles::after{ */
+/*   content: ""; */
+/*   display: block; */
+/*   height: 2rem; */
+/*   background-image: linear-gradient(transparent, #0000004a); */
+/*   position: absolute; */
+/*   bottom: 1rem; */
+/*   width: 93%; */
+/* } */
+
+.tile{
+  display: flex;
+  scroll-snap-align: start;
+  background-color: var(--tile);
+  backdrop-filter: blur(32px);
+  box-shadow: 0 0 1rem 0.25rem rgba(0,0,0,0.25);
+  height: 26rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  transition: all 0.25s ease-out;
+}
+.tile:focus{
+  box-shadow: 0 0 1rem .5rem rgba(0,0,0,0.25);
+  transform: scale(1.05);
+}
+.tile_medium{
+  grid-column: span 2;
+}
+
+
