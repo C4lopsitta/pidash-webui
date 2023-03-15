@@ -1,4 +1,4 @@
-.root{
+#root{
   display: flex;
   flex-flow: column;
   width: 100vw;
@@ -49,4 +49,8 @@
   align-text: center;
 }
 
-
+.home_tiles{
+  display: grid;
+  
+}
+ 

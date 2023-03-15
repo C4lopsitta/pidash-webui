@@ -38,6 +38,9 @@ function App() {
         <p id="nav_vol_pct">50%</p>
       </div>
     </nav>
+    <main className="home_tiles">
+      
+    </main>
     </>
   )
 }
