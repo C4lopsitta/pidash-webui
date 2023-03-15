@@ -11,6 +11,6 @@ _these will most likeley change in the future_
 - customizable layout on a grid based interface
 
 ## Screenshots
-![A screenshot of the project](https://github.com/c4lopsitta/pidash-webui/blob/main/screenshots/img1.png?raw=true)
+![A screenshot of the project](https://github.com/c4lopsitta/pidash-webui/blob/main/screenshots/img2.png.png?raw=true)
 
 
