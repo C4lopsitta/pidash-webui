@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-
+import Tile from './Tile.jsx'
+import Weather from './Weather.jsx'
 
 function App() {
 
   const [data, setData] = useState("");
+  const [time, setTime] = useState("");
+
   useEffect(() => {
     function poll(){
       fetch('http://localhost:80/polling.php')
@@ -19,6 +22,7 @@ function App() {
         setTimeout(poll, 3000);
       })
     }
+    setTime(new Date().toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: false}));
     poll();
   }, []);
   
@@ -31,7 +35,7 @@ function App() {
         <p>A lot of fancy status icons</p>
       </div>
       <div className="home_nav_clock">
-        <h1>16:42</h1>
+        <h1>{time}</h1>
       </div>
       <div className="home_nav_media">
         <span className="material-symbols-rounded home_nav_media_icon">volume_down_alt</span>
@@ -39,7 +43,12 @@ function App() {
       </div>
     </nav>
     <main className="home_tiles">
-      
+      <Tile isSmall="true" component={<Weather />} />
+      <Tile isSmall="true" />
+      <Tile isSmall="false" />
+      <Tile isSmall="true" />
+      <Tile isSmall="true" />
+      <Tile isSmall="false" />
     </main>
     </>
   )
