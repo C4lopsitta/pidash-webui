@@ -67,6 +67,7 @@
   scroll-padding: 1rem;
   margin-bottom: 0;
   padding-bottom: 3rem;
+  grid-template-rows: repeat(auto-fit, 27rem);
 }
 .home_tiles::-webkit-scrollbar {
   display: none;

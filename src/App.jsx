@@ -4,10 +4,28 @@ import Tile from './Tile.jsx'
 import Weather from './Weather.jsx'
 import Spotify from './Spotify.jsx'
 
+function Clock() {
+  const [date, setDate] = useState(new Date());
+
+  function refreshClock() {
+    setDate(new Date());
+  }
+  useEffect(() => {
+    const timer = setInterval(refreshClock, 1000);
+    return function cleanup() {
+      clearInterval(timer);
+    };
+  }, []);
+
+  return (
+    <h1>{date.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: false})}</h1>
+  )
+}
+
+
 function App() {
 
   const [data, setData] = useState();
-  const [time, setTime] = useState("");
 
   useEffect(() => {
     function poll(){
@@ -32,7 +50,6 @@ function App() {
       });
     }
     scrollOnArrowKeyPress();
-    setTime(new Date().toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: false}));
     poll();
   }, []);
   
@@ -41,10 +58,10 @@ function App() {
     <>
     <nav className="home_nav">
       <div className="home_nav_status">
-        <p>A lot of fancy status icons</p>
+        <p>Playing SONG|---</p>
       </div>
       <div className="home_nav_clock">
-        <h1>{time}</h1>
+        <Clock />
       </div>
       <div className="home_nav_media">
         <span className="material-symbols-rounded home_nav_media_icon">volume_down_alt</span>
@@ -55,9 +72,7 @@ function App() {
       <Tile isSmall="true" component={<Weather />} />
       <Tile isSmall="true" />
       <Tile isSmall="false" component={<Spotify />} />
-      <Tile isSmall="true" />
-      <Tile isSmall="true" />
-      <Tile isSmall="true" />
+      
     </main>
     </>
   )
