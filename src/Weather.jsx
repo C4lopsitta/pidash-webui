@@ -25,7 +25,9 @@ function Weather(){
     weather: [
       {
         main: "",
-        description: ""
+        description: "",
+        icon: "",
+        id: 0
       }
     ]
   });
@@ -51,10 +53,42 @@ function Weather(){
     console.log(weather);
   }, []);
 
+  const icons = [
+    <span class="material-symbols-rounded">clear_day</span>,
+    <span class="material-symbols-rounded">clear_night</span>,
+    <span class="material-symbols-rounded">cloudy</span>,
+    <span class="material-symbols-rounded">partly_cloudy_day</span>,
+    <span class="material-symbols-rounded">partly_cloudy_night</span>,
+    <span class="material-symbols-rounded">rainy</span>,
+    <span class="material-symbols-rounded">weather_snowy</span>,
+    <span class="material-symbols-rounded">thunderstorm</span>
+  ]
+
+  const getWeatherIcon = (icon, iconID) => {
+    if(iconID >= 200 && iconID <= 299) return icons[7];
+    if(iconID >= 300 && iconID <= 499) return icons[5];
+    if(iconID == 800){
+      if(icon.charAt(2) == 'd')
+        return icons[0];
+      else
+        return icons[1];
+    }
+    if(iconID >= 801 && iconID <= 802){
+      if(icon.charAt(2) == 'd')
+        return icons[3];
+      else
+        return icons[4]
+    }
+    if(iconID > 802) return icons[2];
+    if(iconID >= 400 && iconID <= 499) return icons[6];
+    return icon[0];
+  }
+
   return (
     <div className="weather">
       <section className="weather_icon">
         <p className="weather_desc">{weather.weather[0].description}</p>
+        {getWeatherIcon(weather.weather[0].icon, weather.weather[0].id)}
       </section>
       <section className="weather_location">
         <p className="weather_city">{weather.name}</p>

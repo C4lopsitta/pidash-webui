@@ -21,11 +21,21 @@ function App() {
         setTimeout(poll, 3000);
       })
     }
+    function scrollOnArrowKeyPress(){
+      document.addEventListener('keydown', (event) => {
+        const keyName = event.key;
+        if(keyName == "ArrowUp"){
+          document.getElementById("home_tiles").scrollBy(0, -10);
+        } else if(keyName == "ArrowDown"){
+          document.getElementById("home_tiles").scrollBy(0, 10);
+        }
+      });
+    }
+    scrollOnArrowKeyPress();
     setTime(new Date().toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: false}));
     poll();
   }, []);
   
-
 
   return (
     <>
@@ -41,13 +51,13 @@ function App() {
         <p id="nav_vol_pct">50%</p>
       </div>
     </nav>
-    <main className="home_tiles">
+    <main className="home_tiles" id="home_tiles">
       <Tile isSmall="true" component={<Weather />} />
       <Tile isSmall="true" />
       <Tile isSmall="false" component={<Spotify />} />
       <Tile isSmall="true" />
       <Tile isSmall="true" />
-      <Tile isSmall="false" />
+      <Tile isSmall="true" />
     </main>
     </>
   )
