@@ -9,6 +9,7 @@ function Spotify(){
       <section className="spotify_info">
         <p className="spotify_title">Giorgio by Moroder</p>
         <p className="spotify_artist">Daft Punk</p>
+        <i>My creator is too stupid to figure out the Spotify API in a day, this is broken</i>
       </section>
     </div>
   )

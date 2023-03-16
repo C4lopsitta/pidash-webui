@@ -58,7 +58,7 @@ function App() {
     <>
     <nav className="home_nav">
       <div className="home_nav_status">
-        <p>Playing SONG|---</p>
+        <p><span className="material-symbols-rounded">email</span> <span className="material-symbols-rounded">bedtime_off</span> <span className="material-symbols-rounded">event</span></p>
       </div>
       <div className="home_nav_clock">
         <Clock />
@@ -70,9 +70,12 @@ function App() {
     </nav>
     <main className="home_tiles" id="home_tiles">
       <Tile isSmall="true" component={<Weather />} />
-      <Tile isSmall="true" />
+      <Tile isSmall="true" component={<Spotify />} />
+      <Tile isSmall="false" component={<Weather />} />
       <Tile isSmall="false" component={<Spotify />} />
-      
+      <Tile isSmall="true" />
+      <Tile isSmall="true" />
+      <Tile isSmall="true" />
     </main>
     </>
   )
